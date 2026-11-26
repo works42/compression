@@ -1,0 +1,1531 @@
+{
+  "schemaVersion": 1,
+  "startedAt": "2026-11-26T07:14:49.463Z",
+  "completedAt": "2026-11-26T07:15:21.697Z",
+  "package": {
+    "name": "@works42/compression",
+    "version": "0.1.0"
+  },
+  "environment": {
+    "node": "v24.21.0",
+    "v8": "13.6.233.17-node.53",
+    "nativeZstd": "1.5.7",
+    "platform": "linux",
+    "release": "7.0.0-44-generic",
+    "arch": "x64",
+    "cpu": "13th Gen Intel(R) Core(TM) i7-13700",
+    "logicalCpus": 24,
+    "availableParallelism": 24
+  },
+  "configuration": {
+    "samples": 9,
+    "targetSampleMs": 100,
+    "warmup": "adaptive calibration, at least half target sample duration per operation",
+    "chunkBytes": 65536,
+    "concurrency": 1,
+    "workerPoolSize": 1,
+    "zstd": {
+      "version": "1.6.0",
+      "level": 3,
+      "checksum": true,
+      "contentSize": false
+    },
+    "gzip": "runtime defaults",
+    "transferInput": false
+  },
+  "sources": {
+    "CMakeLists.txt": "1471622b2a189b1bc61eb631f584eaffd57d2996a91d1fdce6a7fa72f32eb06d",
+    "Makefile": "ffe726a7706ae826f49bf1c57291f34540a9dba4c6e22e8d04a802f4539c2214",
+    "c/codec.c": "b3c5f5f4f8f2e5b6502369f22b58855c63942bd216d0ecef0658a2c592e03f06",
+    "c/decode.c": "d97ceafd4a14c591684cc9e04e500cdf914f3a9f2d9020625bb92435d50876e9",
+    "package-lock.json": "8d0d3f523453b950f3001408c8bcca51791e75527e3be209487ee156709344cd",
+    "package.json": "41282cbc65c43432bc6fff26a28985918b5cfa822cfd6e21f0ea8145327747d9",
+    "src/buffer-output.ts": "5257448a26e5a2de2df4bd70908f9e960ea91471d83add6e45f0b77b654ab106",
+    "src/codec.ts": "651ac6dae06f392b1c6e553d7217f7e4e36181ee8f1106f745b2d0ac7be847ba",
+    "src/direct.ts": "206d794fff746d2e9620891e5ac315d75eacd873d3861fe3e6b5d95c9c9dec48",
+    "src/embedded-modules.d.ts": "dc6f17db64be4599bb4a19ef1c58d69a8dfa136def8d1883d4605d4d57dcb494",
+    "src/embedded.ts": "d3d2fdfb2f5cef5ea3c8d9855bfea24850dc3ed54d5083f36127dd37b53e803d",
+    "src/flow.ts": "d98c736ffc4c9224f733e2976ce6cd51c910743563ad8c04e7cc51ecdeec1a36",
+    "src/index.ts": "eb8a314dbd39eb14d1a905d23b6e718ca34c7f3af4227a270f1eb82fbb9ef573",
+    "src/options.ts": "ebd0703ad4288e089b0b199fc8682f3bc20739c4636b0638af202566ce62ce79",
+    "src/runtime-import.d.ts": "8dde25dbbacc53085ad5a59a5569b38cf2704488e97d100b74c80de36ef58a7b",
+    "src/runtime-import.js": "aedf51254338bc2c8b1d399bcb9117084663d6f0cd007caf76711f5b4ae30aa7",
+    "src/worker-client.ts": "eeabe9e8ac0125fa136b93f80e24f2d82f5bed34e84c719d4215de62010a320c",
+    "src/worker-pool.ts": "5650a62eb53569aed2db308772357658639312db2433eb13aa98e6bbe8357c1d",
+    "src/worker.ts": "6141f515736d2edcdfd4a2a1fd140856b218e96f66a609df7342f67694f3e703",
+    "src/zstd-module.ts": "81bfee32f3fea65e5f510b212c5de5ec73aa8af733d0543147e8cc58918bafb4",
+    "src/zstd-processor.ts": "9b8fe31533f3bde98366a043669a9a88bb6a9a3c6134b554ae7751d345741b8f",
+    "src/zstd.ts": "86489a0bfc13d90323fdb54920187351516f9e39fc2fcab76e8407daa4f3eda4",
+    "tools/Dockerfile": "d459f1c59abed53cf5a02295979375f5c58cb7665017df5838bad19cac50a570",
+    "tools/benchmark.mjs": "d5c7a5ea9149c6a8a022e2edfbf0b47a79c3e886a0979e601e859cca750c0877",
+    "tools/build-js.mjs": "91e681d6ed3aa0bef8fa070cde39704eb93d0e21b2528567adfba0bc539f6cb4",
+    "tools/render-benchmark.mjs": "c9de7e43a6064359025074656073980880ecd71f10801c135feb44d893cab621"
+  },
+  "artifacts": {
+    "dist/embedded.js": "3b145c698b1ce247f6d02b0b8f4ffb58e30ab56e5b666253bc961bc32ada33b1",
+    "dist/index.js": "fadb1ddf971b64fb812872c5a8b418d5ae1b8e4b9758169b0382a3961e9b642c",
+    "dist/runtime-import.js": "aedf51254338bc2c8b1d399bcb9117084663d6f0cd007caf76711f5b4ae30aa7",
+    "dist/wasm/zstd.mjs": "90364e927f04ff205d195fe991c64f4f83957b6a873e6632b772671cfe9b875a",
+    "dist/wasm/zstd.wasm": "1565b6f34d42cfea716e4a24296a2a7946c081dd76a29f95d2f90fc0c0e4ee02",
+    "dist/worker.js": "f0960164807ca616ff1cf6c554309ca6e4ff54b9ed571e7fa918c63aacdfac6c"
+  },
+  "corpora": [
+    {
+      "id": "json-4k",
+      "label": "JSON records · 4 KiB",
+      "bytes": 4096,
+      "sha256": "13ac0b38021100b4ed79ae9885c873ac0ecf489f9bcd436f85a8b9200777fbd5"
+    },
+    {
+      "id": "json-1m",
+      "label": "JSON records · 1 MiB",
+      "bytes": 1048576,
+      "sha256": "fc99d34a546cc1f394befd0732e03f109d8226d5803295d2f1d11e3d4869d558"
+    },
+    {
+      "id": "random-1m",
+      "label": "Seeded random · 1 MiB",
+      "bytes": 1048576,
+      "sha256": "5b64b12ad6e657f403f9e3e57e4ad6fbd1d8fb14c53a0c7e1dc5dbd2257166b1"
+    }
+  ],
+  "methods": [
+    {
+      "id": "prepared",
+      "label": "Zstd · prepared",
+      "synchronous": true
+    },
+    {
+      "id": "buffer",
+      "label": "Zstd · buffer",
+      "synchronous": false
+    },
+    {
+      "id": "stream",
+      "label": "Zstd · stream",
+      "synchronous": false
+    },
+    {
+      "id": "worker",
+      "label": "Zstd · worker pool",
+      "synchronous": false
+    },
+    {
+      "id": "gzip",
+      "label": "gzip · native buffer",
+      "synchronous": false
+    }
+  ],
+  "results": [
+    {
+      "corpus": "json-4k",
+      "method": "prepared",
+      "compressedBytes": 608,
+      "compressedPercent": 14.84375,
+      "compress": {
+        "medianMs": 0.011054857281763069,
+        "medianMiBPerSecond": 353.35146356380795,
+        "p25MiBPerSecond": 323.46914917770545,
+        "p75MiBPerSecond": 366.37183746436557,
+        "samples": [
+          {
+            "iterations": 9256,
+            "elapsedMs": 111.77650199999971
+          },
+          {
+            "iterations": 9256,
+            "elapsedMs": 98.68730700000015
+          },
+          {
+            "iterations": 9256,
+            "elapsedMs": 103.69159799999943
+          },
+          {
+            "iterations": 9256,
+            "elapsedMs": 120.70106399999713
+          },
+          {
+            "iterations": 9256,
+            "elapsedMs": 115.58682200000112
+          },
+          {
+            "iterations": 9256,
+            "elapsedMs": 98.67923000000155
+          },
+          {
+            "iterations": 9256,
+            "elapsedMs": 100.1549849999974
+          },
+          {
+            "iterations": 9256,
+            "elapsedMs": 102.32375899999897
+          },
+          {
+            "iterations": 9256,
+            "elapsedMs": 97.60730400000102
+          }
+        ]
+      },
+      "decompress": {
+        "medianMs": 0.005745384143155565,
+        "medianMiBPerSecond": 679.8936159305357,
+        "p25MiBPerSecond": 602.2622222680043,
+        "p75MiBPerSecond": 700.3272912636561,
+        "samples": [
+          {
+            "iterations": 15312,
+            "elapsedMs": 86.82985999999983
+          },
+          {
+            "iterations": 15312,
+            "elapsedMs": 99.31305299999985
+          },
+          {
+            "iterations": 15312,
+            "elapsedMs": 85.4064959999996
+          },
+          {
+            "iterations": 15312,
+            "elapsedMs": 113.22305200000119
+          },
+          {
+            "iterations": 15312,
+            "elapsedMs": 104.9809150000001
+          },
+          {
+            "iterations": 15312,
+            "elapsedMs": 91.67366499999844
+          },
+          {
+            "iterations": 15312,
+            "elapsedMs": 82.975395999998
+          },
+          {
+            "iterations": 15312,
+            "elapsedMs": 84.42244299999948
+          },
+          {
+            "iterations": 15312,
+            "elapsedMs": 87.973321999998
+          }
+        ]
+      }
+    },
+    {
+      "corpus": "json-4k",
+      "method": "buffer",
+      "compressedBytes": 608,
+      "compressedPercent": 14.84375,
+      "compress": {
+        "medianMs": 0.010936827229642385,
+        "medianMiBPerSecond": 357.16482650587943,
+        "p25MiBPerSecond": 349.3735699677722,
+        "p75MiBPerSecond": 362.650933537322,
+        "samples": [
+          {
+            "iterations": 9284,
+            "elapsedMs": 101.5375039999999
+          },
+          {
+            "iterations": 9284,
+            "elapsedMs": 99.89505799999915
+          },
+          {
+            "iterations": 9284,
+            "elapsedMs": 100.51422900000034
+          },
+          {
+            "iterations": 9284,
+            "elapsedMs": 115.79556500000035
+          },
+          {
+            "iterations": 9284,
+            "elapsedMs": 121.84843700000056
+          },
+          {
+            "iterations": 9284,
+            "elapsedMs": 103.80185599999822
+          },
+          {
+            "iterations": 9284,
+            "elapsedMs": 102.38309200000003
+          },
+          {
+            "iterations": 9284,
+            "elapsedMs": 99.61825099999987
+          },
+          {
+            "iterations": 9284,
+            "elapsedMs": 100.00146599999789
+          }
+        ]
+      },
+      "decompress": {
+        "medianMs": 0.00593225443617625,
+        "medianMiBPerSecond": 658.4764766964124,
+        "p25MiBPerSecond": 648.3364115500048,
+        "p75MiBPerSecond": 660.1304129793032,
+        "samples": [
+          {
+            "iterations": 17470,
+            "elapsedMs": 103.93812099999923
+          },
+          {
+            "iterations": 17470,
+            "elapsedMs": 105.25737299999946
+          },
+          {
+            "iterations": 17470,
+            "elapsedMs": 103.37682700000005
+          },
+          {
+            "iterations": 17470,
+            "elapsedMs": 123.34500800000023
+          },
+          {
+            "iterations": 17470,
+            "elapsedMs": 124.96011699999872
+          },
+          {
+            "iterations": 17470,
+            "elapsedMs": 103.63648499999908
+          },
+          {
+            "iterations": 17470,
+            "elapsedMs": 100.96856500000285
+          },
+          {
+            "iterations": 17470,
+            "elapsedMs": 100.50021000000197
+          },
+          {
+            "iterations": 17470,
+            "elapsedMs": 103.42416700000103
+          }
+        ]
+      }
+    },
+    {
+      "corpus": "json-4k",
+      "method": "stream",
+      "compressedBytes": 608,
+      "compressedPercent": 14.84375,
+      "compress": {
+        "medianMs": 0.030131079322034227,
+        "medianMiBPerSecond": 129.64188764202154,
+        "p25MiBPerSecond": 128.25875389803704,
+        "p75MiBPerSecond": 130.3938314506173,
+        "samples": [
+          {
+            "iterations": 2950,
+            "elapsedMs": 89.84523199999967
+          },
+          {
+            "iterations": 2950,
+            "elapsedMs": 88.3741
+          },
+          {
+            "iterations": 2950,
+            "elapsedMs": 88.87742099999923
+          },
+          {
+            "iterations": 2950,
+            "elapsedMs": 104.10335499999928
+          },
+          {
+            "iterations": 2950,
+            "elapsedMs": 100.09295500000007
+          },
+          {
+            "iterations": 2950,
+            "elapsedMs": 88.88668400000097
+          },
+          {
+            "iterations": 2950,
+            "elapsedMs": 88.02840299999662
+          },
+          {
+            "iterations": 2950,
+            "elapsedMs": 88.35419999999795
+          },
+          {
+            "iterations": 2950,
+            "elapsedMs": 89.82038400000238
+          }
+        ]
+      },
+      "decompress": {
+        "medianMs": 0.01499324471693188,
+        "medianMiBPerSecond": 260.5339987273515,
+        "p25MiBPerSecond": 245.4127593011354,
+        "p75MiBPerSecond": 297.1231977897482,
+        "samples": [
+          {
+            "iterations": 7666,
+            "elapsedMs": 114.93821399999979
+          },
+          {
+            "iterations": 7666,
+            "elapsedMs": 100.78416199999992
+          },
+          {
+            "iterations": 7666,
+            "elapsedMs": 137.00652900000023
+          },
+          {
+            "iterations": 7666,
+            "elapsedMs": 132.1341820000016
+          },
+          {
+            "iterations": 7666,
+            "elapsedMs": 104.71289400000023
+          },
+          {
+            "iterations": 7666,
+            "elapsedMs": 98.42533299999923
+          },
+          {
+            "iterations": 7666,
+            "elapsedMs": 118.62279900000067
+          },
+          {
+            "iterations": 7666,
+            "elapsedMs": 99.97233000000051
+          },
+          {
+            "iterations": 7666,
+            "elapsedMs": 122.02019400000063
+          }
+        ]
+      }
+    },
+    {
+      "corpus": "json-4k",
+      "method": "worker",
+      "compressedBytes": 608,
+      "compressedPercent": 14.84375,
+      "compress": {
+        "medianMs": 0.17426981199999864,
+        "medianMiBPerSecond": 22.4149550353565,
+        "p25MiBPerSecond": 20.82734438879916,
+        "p75MiBPerSecond": 24.595698040676098,
+        "samples": [
+          {
+            "iterations": 250,
+            "elapsedMs": 46.027860000000146
+          },
+          {
+            "iterations": 250,
+            "elapsedMs": 39.23463400000037
+          },
+          {
+            "iterations": 250,
+            "elapsedMs": 66.68132499999956
+          },
+          {
+            "iterations": 250,
+            "elapsedMs": 82.14975700000105
+          },
+          {
+            "iterations": 250,
+            "elapsedMs": 43.56745299999966
+          },
+          {
+            "iterations": 250,
+            "elapsedMs": 39.70460599999933
+          },
+          {
+            "iterations": 250,
+            "elapsedMs": 46.8884790000011
+          },
+          {
+            "iterations": 250,
+            "elapsedMs": 33.42771899999934
+          },
+          {
+            "iterations": 250,
+            "elapsedMs": 41.59339100000216
+          }
+        ]
+      },
+      "decompress": {
+        "medianMs": 0.14022970666666676,
+        "medianMiBPerSecond": 27.85608051855487,
+        "p25MiBPerSecond": 24.260857878150404,
+        "p75MiBPerSecond": 29.900288231761856,
+        "samples": [
+          {
+            "iterations": 450,
+            "elapsedMs": 58.78914900000018
+          },
+          {
+            "iterations": 450,
+            "elapsedMs": 59.246664999999666
+          },
+          {
+            "iterations": 450,
+            "elapsedMs": 86.40414100000089
+          },
+          {
+            "iterations": 450,
+            "elapsedMs": 82.46726699999999
+          },
+          {
+            "iterations": 450,
+            "elapsedMs": 49.423524000001635
+          },
+          {
+            "iterations": 450,
+            "elapsedMs": 72.45467199999985
+          },
+          {
+            "iterations": 450,
+            "elapsedMs": 50.88027400000283
+          },
+          {
+            "iterations": 450,
+            "elapsedMs": 63.103368000000046
+          },
+          {
+            "iterations": 450,
+            "elapsedMs": 66.43084499999895
+          }
+        ]
+      }
+    },
+    {
+      "corpus": "json-4k",
+      "method": "gzip",
+      "compressedBytes": 657,
+      "compressedPercent": 16.0400390625,
+      "compress": {
+        "medianMs": 0.07271563869693841,
+        "medianMiBPerSecond": 53.71953090146573,
+        "p25MiBPerSecond": 36.562150591443746,
+        "p75MiBPerSecond": 54.58073211370419,
+        "samples": [
+          {
+            "iterations": 1013,
+            "elapsedMs": 72.63991199999964
+          },
+          {
+            "iterations": 1013,
+            "elapsedMs": 71.18243599999914
+          },
+          {
+            "iterations": 1013,
+            "elapsedMs": 92.88739300000088
+          },
+          {
+            "iterations": 1013,
+            "elapsedMs": 108.22753000000012
+          },
+          {
+            "iterations": 1013,
+            "elapsedMs": 122.04336999999941
+          },
+          {
+            "iterations": 1013,
+            "elapsedMs": 62.15698700000212
+          },
+          {
+            "iterations": 1013,
+            "elapsedMs": 73.66094199999861
+          },
+          {
+            "iterations": 1013,
+            "elapsedMs": 72.49868399999832
+          },
+          {
+            "iterations": 1013,
+            "elapsedMs": 149.4563530000014
+          }
+        ]
+      },
+      "decompress": {
+        "medianMs": 0.041861724800749754,
+        "medianMiBPerSecond": 93.3131641993413,
+        "p25MiBPerSecond": 78.13437539242268,
+        "p75MiBPerSecond": 97.67608630505619,
+        "samples": [
+          {
+            "iterations": 2133,
+            "elapsedMs": 85.30267300000014
+          },
+          {
+            "iterations": 2133,
+            "elapsedMs": 90.6124260000006
+          },
+          {
+            "iterations": 2133,
+            "elapsedMs": 110.95604800000001
+          },
+          {
+            "iterations": 2133,
+            "elapsedMs": 106.63720300000023
+          },
+          {
+            "iterations": 2133,
+            "elapsedMs": 89.29105899999922
+          },
+          {
+            "iterations": 2133,
+            "elapsedMs": 86.76520100000198
+          },
+          {
+            "iterations": 2133,
+            "elapsedMs": 78.99539100000038
+          },
+          {
+            "iterations": 2133,
+            "elapsedMs": 79.08881399999882
+          },
+          {
+            "iterations": 2133,
+            "elapsedMs": 119.00794200000018
+          }
+        ]
+      }
+    },
+    {
+      "corpus": "json-1m",
+      "method": "prepared",
+      "compressedBytes": 127244,
+      "compressedPercent": 12.134933471679688,
+      "compress": {
+        "medianMs": 2.1286929583333554,
+        "medianMiBPerSecond": 469.77183632107403,
+        "p25MiBPerSecond": 444.0768844742534,
+        "p75MiBPerSecond": 476.03726586330265,
+        "samples": [
+          {
+            "iterations": 48,
+            "elapsedMs": 100.8324419999999
+          },
+          {
+            "iterations": 48,
+            "elapsedMs": 100.59349900000052
+          },
+          {
+            "iterations": 48,
+            "elapsedMs": 108.08939100000134
+          },
+          {
+            "iterations": 48,
+            "elapsedMs": 112.39983399999983
+          },
+          {
+            "iterations": 48,
+            "elapsedMs": 115.07883299999958
+          },
+          {
+            "iterations": 48,
+            "elapsedMs": 102.17726200000106
+          },
+          {
+            "iterations": 48,
+            "elapsedMs": 99.7821440000007
+          },
+          {
+            "iterations": 48,
+            "elapsedMs": 102.75025699999969
+          },
+          {
+            "iterations": 48,
+            "elapsedMs": 101.96777600000132
+          }
+        ]
+      },
+      "decompress": {
+        "medianMs": 1.1788221616161627,
+        "medianMiBPerSecond": 848.3043775059353,
+        "p25MiBPerSecond": 812.5212312208223,
+        "p75MiBPerSecond": 868.8088767203225,
+        "samples": [
+          {
+            "iterations": 99,
+            "elapsedMs": 116.39701500000047
+          },
+          {
+            "iterations": 99,
+            "elapsedMs": 120.1480330000013
+          },
+          {
+            "iterations": 99,
+            "elapsedMs": 116.70339400000012
+          },
+          {
+            "iterations": 99,
+            "elapsedMs": 134.05271300000095
+          },
+          {
+            "iterations": 99,
+            "elapsedMs": 133.8135050000019
+          },
+          {
+            "iterations": 99,
+            "elapsedMs": 108.21848099999988
+          },
+          {
+            "iterations": 99,
+            "elapsedMs": 113.94911200000206
+          },
+          {
+            "iterations": 99,
+            "elapsedMs": 112.50313399999868
+          },
+          {
+            "iterations": 99,
+            "elapsedMs": 121.84296999999788
+          }
+        ]
+      }
+    },
+    {
+      "corpus": "json-1m",
+      "method": "buffer",
+      "compressedBytes": 127244,
+      "compressedPercent": 12.134933471679688,
+      "compress": {
+        "medianMs": 2.3174911555556013,
+        "medianMiBPerSecond": 431.50110739484455,
+        "p25MiBPerSecond": 401.6609519387726,
+        "p75MiBPerSecond": 446.3993606132662,
+        "samples": [
+          {
+            "iterations": 45,
+            "elapsedMs": 100.80659600000035
+          },
+          {
+            "iterations": 45,
+            "elapsedMs": 112.03478900000118
+          },
+          {
+            "iterations": 45,
+            "elapsedMs": 110.5391980000004
+          },
+          {
+            "iterations": 45,
+            "elapsedMs": 112.2113530000006
+          },
+          {
+            "iterations": 45,
+            "elapsedMs": 125.72971200000029
+          },
+          {
+            "iterations": 45,
+            "elapsedMs": 100.46084800000244
+          },
+          {
+            "iterations": 45,
+            "elapsedMs": 99.79209400000036
+          },
+          {
+            "iterations": 45,
+            "elapsedMs": 101.42071100000248
+          },
+          {
+            "iterations": 45,
+            "elapsedMs": 104.28710200000205
+          }
+        ]
+      },
+      "decompress": {
+        "medianMs": 1.0600874791666683,
+        "medianMiBPerSecond": 943.3183766929283,
+        "p25MiBPerSecond": 911.6705222732517,
+        "p75MiBPerSecond": 961.4845513770183,
+        "samples": [
+          {
+            "iterations": 96,
+            "elapsedMs": 98.17309300000034
+          },
+          {
+            "iterations": 96,
+            "elapsedMs": 102.06478699999934
+          },
+          {
+            "iterations": 96,
+            "elapsedMs": 105.30119999999988
+          },
+          {
+            "iterations": 96,
+            "elapsedMs": 101.76839800000016
+          },
+          {
+            "iterations": 96,
+            "elapsedMs": 123.72295699999813
+          },
+          {
+            "iterations": 96,
+            "elapsedMs": 99.3461129999996
+          },
+          {
+            "iterations": 96,
+            "elapsedMs": 112.28449499999988
+          },
+          {
+            "iterations": 96,
+            "elapsedMs": 99.84559799999988
+          },
+          {
+            "iterations": 96,
+            "elapsedMs": 100.55672100000083
+          }
+        ]
+      }
+    },
+    {
+      "corpus": "json-1m",
+      "method": "stream",
+      "compressedBytes": 127244,
+      "compressedPercent": 12.134933471679688,
+      "compress": {
+        "medianMs": 2.2012521111110903,
+        "medianMiBPerSecond": 454.28690105616585,
+        "p25MiBPerSecond": 431.75498008502467,
+        "p75MiBPerSecond": 462.3076418805964,
+        "samples": [
+          {
+            "iterations": 45,
+            "elapsedMs": 97.33778100000018
+          },
+          {
+            "iterations": 45,
+            "elapsedMs": 99.05634499999906
+          },
+          {
+            "iterations": 45,
+            "elapsedMs": 103.32920600000034
+          },
+          {
+            "iterations": 45,
+            "elapsedMs": 110.7967639999988
+          },
+          {
+            "iterations": 45,
+            "elapsedMs": 115.45664699999907
+          },
+          {
+            "iterations": 45,
+            "elapsedMs": 98.20087499999863
+          },
+          {
+            "iterations": 45,
+            "elapsedMs": 104.22578099999737
+          },
+          {
+            "iterations": 45,
+            "elapsedMs": 95.58867199999804
+          },
+          {
+            "iterations": 45,
+            "elapsedMs": 96.93584900000133
+          }
+        ]
+      },
+      "decompress": {
+        "medianMs": 1.2293534175824279,
+        "medianMiBPerSecond": 813.4357343444325,
+        "p25MiBPerSecond": 729.9603933116459,
+        "p75MiBPerSecond": 899.8463230583235,
+        "samples": [
+          {
+            "iterations": 91,
+            "elapsedMs": 100.93797499999982
+          },
+          {
+            "iterations": 91,
+            "elapsedMs": 130.30745599999864
+          },
+          {
+            "iterations": 91,
+            "elapsedMs": 111.87116100000094
+          },
+          {
+            "iterations": 91,
+            "elapsedMs": 124.66429799999969
+          },
+          {
+            "iterations": 91,
+            "elapsedMs": 121.24884300000122
+          },
+          {
+            "iterations": 91,
+            "elapsedMs": 101.12837900000159
+          },
+          {
+            "iterations": 91,
+            "elapsedMs": 97.8962930000016
+          },
+          {
+            "iterations": 91,
+            "elapsedMs": 126.28453200000149
+          },
+          {
+            "iterations": 91,
+            "elapsedMs": 107.36297800000102
+          }
+        ]
+      }
+    },
+    {
+      "corpus": "json-1m",
+      "method": "worker",
+      "compressedBytes": 127244,
+      "compressedPercent": 12.134933471679688,
+      "compress": {
+        "medianMs": 3.1705882424242495,
+        "medianMiBPerSecond": 315.398886118178,
+        "p25MiBPerSecond": 290.49605449579303,
+        "p75MiBPerSecond": 335.6018936570856,
+        "samples": [
+          {
+            "iterations": 33,
+            "elapsedMs": 104.62941200000023
+          },
+          {
+            "iterations": 33,
+            "elapsedMs": 113.59878899999967
+          },
+          {
+            "iterations": 33,
+            "elapsedMs": 102.75270000000091
+          },
+          {
+            "iterations": 33,
+            "elapsedMs": 142.01577999999972
+          },
+          {
+            "iterations": 33,
+            "elapsedMs": 129.44869199999812
+          },
+          {
+            "iterations": 33,
+            "elapsedMs": 95.53358200000002
+          },
+          {
+            "iterations": 33,
+            "elapsedMs": 89.65547100000185
+          },
+          {
+            "iterations": 33,
+            "elapsedMs": 98.33079199999702
+          },
+          {
+            "iterations": 33,
+            "elapsedMs": 108.8676979999982
+          }
+        ]
+      },
+      "decompress": {
+        "medianMs": 1.652772052631598,
+        "medianMiBPerSecond": 605.0441126516914,
+        "p25MiBPerSecond": 483.19445039136815,
+        "p75MiBPerSecond": 637.6423930974029,
+        "samples": [
+          {
+            "iterations": 57,
+            "elapsedMs": 91.54586600000039
+          },
+          {
+            "iterations": 57,
+            "elapsedMs": 105.97665199999938
+          },
+          {
+            "iterations": 57,
+            "elapsedMs": 117.96493099999861
+          },
+          {
+            "iterations": 57,
+            "elapsedMs": 144.0030340000012
+          },
+          {
+            "iterations": 57,
+            "elapsedMs": 151.33393200000137
+          },
+          {
+            "iterations": 57,
+            "elapsedMs": 82.4033840000011
+          },
+          {
+            "iterations": 57,
+            "elapsedMs": 89.39179800000056
+          },
+          {
+            "iterations": 57,
+            "elapsedMs": 89.25653199999942
+          },
+          {
+            "iterations": 57,
+            "elapsedMs": 94.20800700000109
+          }
+        ]
+      }
+    },
+    {
+      "corpus": "json-1m",
+      "method": "gzip",
+      "compressedBytes": 130455,
+      "compressedPercent": 12.441158294677734,
+      "compress": {
+        "medianMs": 17.240040749999935,
+        "medianMiBPerSecond": 58.00450326661807,
+        "p25MiBPerSecond": 52.62137247826647,
+        "p75MiBPerSecond": 67.62879218730362,
+        "samples": [
+          {
+            "iterations": 4,
+            "elapsedMs": 59.66989100000046
+          },
+          {
+            "iterations": 4,
+            "elapsedMs": 71.081365
+          },
+          {
+            "iterations": 4,
+            "elapsedMs": 59.14640600000166
+          },
+          {
+            "iterations": 4,
+            "elapsedMs": 76.01474100000087
+          },
+          {
+            "iterations": 4,
+            "elapsedMs": 68.96016299999974
+          },
+          {
+            "iterations": 4,
+            "elapsedMs": 48.03261600000042
+          },
+          {
+            "iterations": 4,
+            "elapsedMs": 46.23391099999935
+          },
+          {
+            "iterations": 4,
+            "elapsedMs": 129.02919200000179
+          },
+          {
+            "iterations": 4,
+            "elapsedMs": 85.17601999999897
+          }
+        ]
+      },
+      "decompress": {
+        "medianMs": 3.0150775384615303,
+        "medianMiBPerSecond": 331.66642888735083,
+        "p25MiBPerSecond": 278.2030152477383,
+        "p75MiBPerSecond": 393.9530569476873,
+        "samples": [
+          {
+            "iterations": 26,
+            "elapsedMs": 65.99771099999998
+          },
+          {
+            "iterations": 26,
+            "elapsedMs": 61.78417099999933
+          },
+          {
+            "iterations": 26,
+            "elapsedMs": 78.39201599999978
+          },
+          {
+            "iterations": 26,
+            "elapsedMs": 97.31459300000097
+          },
+          {
+            "iterations": 26,
+            "elapsedMs": 92.47465100000045
+          },
+          {
+            "iterations": 26,
+            "elapsedMs": 75.42568200000096
+          },
+          {
+            "iterations": 26,
+            "elapsedMs": 57.81649099999777
+          },
+          {
+            "iterations": 26,
+            "elapsedMs": 133.87230999999883
+          },
+          {
+            "iterations": 26,
+            "elapsedMs": 93.45693100000062
+          }
+        ]
+      }
+    },
+    {
+      "corpus": "random-1m",
+      "method": "prepared",
+      "compressedBytes": 1048613,
+      "compressedPercent": 100.0035285949707,
+      "compress": {
+        "medianMs": 0.7419420392156919,
+        "medianMiBPerSecond": 1347.8141783920232,
+        "p25MiBPerSecond": 1243.2152745231401,
+        "p75MiBPerSecond": 1602.5363059313127,
+        "samples": [
+          {
+            "iterations": 153,
+            "elapsedMs": 123.06798600000002
+          },
+          {
+            "iterations": 153,
+            "elapsedMs": 94.69758900000124
+          },
+          {
+            "iterations": 153,
+            "elapsedMs": 126.26344699999936
+          },
+          {
+            "iterations": 153,
+            "elapsedMs": 100.83839600000101
+          },
+          {
+            "iterations": 153,
+            "elapsedMs": 135.89709199999925
+          },
+          {
+            "iterations": 153,
+            "elapsedMs": 95.47365600000194
+          },
+          {
+            "iterations": 153,
+            "elapsedMs": 113.51713200000086
+          },
+          {
+            "iterations": 153,
+            "elapsedMs": 91.05530699999872
+          },
+          {
+            "iterations": 153,
+            "elapsedMs": 116.17739599999913
+          }
+        ]
+      },
+      "decompress": {
+        "medianMs": 0.5571396451612993,
+        "medianMiBPerSecond": 1794.8821425380468,
+        "p25MiBPerSecond": 1772.499464962469,
+        "p75MiBPerSecond": 1935.8148731529461,
+        "samples": [
+          {
+            "iterations": 217,
+            "elapsedMs": 92.72185200000058
+          },
+          {
+            "iterations": 217,
+            "elapsedMs": 124.88540900000044
+          },
+          {
+            "iterations": 217,
+            "elapsedMs": 104.95177100000001
+          },
+          {
+            "iterations": 217,
+            "elapsedMs": 131.29339000000073
+          },
+          {
+            "iterations": 217,
+            "elapsedMs": 112.0974959999985
+          },
+          {
+            "iterations": 217,
+            "elapsedMs": 120.89930300000196
+          },
+          {
+            "iterations": 217,
+            "elapsedMs": 117.66250800000125
+          },
+          {
+            "iterations": 217,
+            "elapsedMs": 122.42598899999939
+          },
+          {
+            "iterations": 217,
+            "elapsedMs": 121.23097499999858
+          }
+        ]
+      }
+    },
+    {
+      "corpus": "random-1m",
+      "method": "buffer",
+      "compressedBytes": 1048613,
+      "compressedPercent": 100.0035285949707,
+      "compress": {
+        "medianMs": 0.8053404503816984,
+        "medianMiBPerSecond": 1241.7108808157357,
+        "p25MiBPerSecond": 1136.355730765984,
+        "p75MiBPerSecond": 1346.9461538122032,
+        "samples": [
+          {
+            "iterations": 131,
+            "elapsedMs": 92.0464409999995
+          },
+          {
+            "iterations": 131,
+            "elapsedMs": 106.85891999999876
+          },
+          {
+            "iterations": 131,
+            "elapsedMs": 115.28080200000113
+          },
+          {
+            "iterations": 131,
+            "elapsedMs": 176.68148999999903
+          },
+          {
+            "iterations": 131,
+            "elapsedMs": 116.42751700000008
+          },
+          {
+            "iterations": 131,
+            "elapsedMs": 100.26282499999797
+          },
+          {
+            "iterations": 131,
+            "elapsedMs": 97.25704300000143
+          },
+          {
+            "iterations": 131,
+            "elapsedMs": 92.88443700000062
+          },
+          {
+            "iterations": 131,
+            "elapsedMs": 105.49959900000249
+          }
+        ]
+      },
+      "decompress": {
+        "medianMs": 0.5970036428571542,
+        "medianMiBPerSecond": 1675.0316551071217,
+        "p25MiBPerSecond": 1503.5079390812557,
+        "p75MiBPerSecond": 1818.926869525559,
+        "samples": [
+          {
+            "iterations": 168,
+            "elapsedMs": 90.58345399999962
+          },
+          {
+            "iterations": 168,
+            "elapsedMs": 104.27071199999955
+          },
+          {
+            "iterations": 168,
+            "elapsedMs": 111.73868500000026
+          },
+          {
+            "iterations": 168,
+            "elapsedMs": 130.8977790000008
+          },
+          {
+            "iterations": 168,
+            "elapsedMs": 119.0166449999997
+          },
+          {
+            "iterations": 168,
+            "elapsedMs": 93.57018099999914
+          },
+          {
+            "iterations": 168,
+            "elapsedMs": 90.52718900000036
+          },
+          {
+            "iterations": 168,
+            "elapsedMs": 92.36215199999788
+          },
+          {
+            "iterations": 168,
+            "elapsedMs": 100.29661200000191
+          }
+        ]
+      }
+    },
+    {
+      "corpus": "random-1m",
+      "method": "stream",
+      "compressedBytes": 1048613,
+      "compressedPercent": 100.0035285949707,
+      "compress": {
+        "medianMs": 0.7680291846153873,
+        "medianMiBPerSecond": 1302.0338550035424,
+        "p25MiBPerSecond": 1232.3963206068383,
+        "p75MiBPerSecond": 1327.1062378045724,
+        "samples": [
+          {
+            "iterations": 130,
+            "elapsedMs": 98.43400999999994
+          },
+          {
+            "iterations": 130,
+            "elapsedMs": 105.48554700000022
+          },
+          {
+            "iterations": 130,
+            "elapsedMs": 100.84928500000024
+          },
+          {
+            "iterations": 130,
+            "elapsedMs": 111.96786799999973
+          },
+          {
+            "iterations": 130,
+            "elapsedMs": 119.21518699999797
+          },
+          {
+            "iterations": 130,
+            "elapsedMs": 97.13021800000206
+          },
+          {
+            "iterations": 130,
+            "elapsedMs": 94.33314600000085
+          },
+          {
+            "iterations": 130,
+            "elapsedMs": 97.9574930000017
+          },
+          {
+            "iterations": 130,
+            "elapsedMs": 99.84379400000034
+          }
+        ]
+      },
+      "decompress": {
+        "medianMs": 0.5540059775280906,
+        "medianMiBPerSecond": 1805.034675730183,
+        "p25MiBPerSecond": 1702.0498283310517,
+        "p75MiBPerSecond": 1834.8952208855103,
+        "samples": [
+          {
+            "iterations": 178,
+            "elapsedMs": 98.61306400000012
+          },
+          {
+            "iterations": 178,
+            "elapsedMs": 96.47528799999964
+          },
+          {
+            "iterations": 178,
+            "elapsedMs": 104.5797820000007
+          },
+          {
+            "iterations": 178,
+            "elapsedMs": 171.10309300000154
+          },
+          {
+            "iterations": 178,
+            "elapsedMs": 132.92368200000055
+          },
+          {
+            "iterations": 178,
+            "elapsedMs": 98.57011099999727
+          },
+          {
+            "iterations": 178,
+            "elapsedMs": 95.27433700000256
+          },
+          {
+            "iterations": 178,
+            "elapsedMs": 97.00826400000005
+          },
+          {
+            "iterations": 178,
+            "elapsedMs": 101.87313100000028
+          }
+        ]
+      }
+    },
+    {
+      "corpus": "random-1m",
+      "method": "worker",
+      "compressedBytes": 1048613,
+      "compressedPercent": 100.0035285949707,
+      "compress": {
+        "medianMs": 1.7714313673469053,
+        "medianMiBPerSecond": 564.5152380347156,
+        "p25MiBPerSecond": 420.15572771936775,
+        "p75MiBPerSecond": 588.5398935401004,
+        "samples": [
+          {
+            "iterations": 49,
+            "elapsedMs": 88.65016399999968
+          },
+          {
+            "iterations": 49,
+            "elapsedMs": 78.07050000000163
+          },
+          {
+            "iterations": 49,
+            "elapsedMs": 116.62342499999977
+          },
+          {
+            "iterations": 49,
+            "elapsedMs": 152.66080599999987
+          },
+          {
+            "iterations": 49,
+            "elapsedMs": 127.04066099999909
+          },
+          {
+            "iterations": 49,
+            "elapsedMs": 86.80013699999836
+          },
+          {
+            "iterations": 49,
+            "elapsedMs": 76.33662999999797
+          },
+          {
+            "iterations": 49,
+            "elapsedMs": 84.05677099999957
+          },
+          {
+            "iterations": 49,
+            "elapsedMs": 83.25688799999989
+          }
+        ]
+      },
+      "decompress": {
+        "medianMs": 1.4184456666666543,
+        "medianMiBPerSecond": 704.9970425374127,
+        "p25MiBPerSecond": 591.6689112284226,
+        "p75MiBPerSecond": 725.5162655849456,
+        "samples": [
+          {
+            "iterations": 60,
+            "elapsedMs": 101.40806599999996
+          },
+          {
+            "iterations": 60,
+            "elapsedMs": 94.87496199999987
+          },
+          {
+            "iterations": 60,
+            "elapsedMs": 84.18027999999867
+          },
+          {
+            "iterations": 60,
+            "elapsedMs": 138.07546300000104
+          },
+          {
+            "iterations": 60,
+            "elapsedMs": 121.056908999999
+          },
+          {
+            "iterations": 60,
+            "elapsedMs": 85.10673999999926
+          },
+          {
+            "iterations": 60,
+            "elapsedMs": 64.92078499999843
+          },
+          {
+            "iterations": 60,
+            "elapsedMs": 82.69973100000061
+          },
+          {
+            "iterations": 60,
+            "elapsedMs": 81.82114199999705
+          }
+        ]
+      }
+    },
+    {
+      "corpus": "random-1m",
+      "method": "gzip",
+      "compressedBytes": 1048919,
+      "compressedPercent": 100.03271102905273,
+      "compress": {
+        "medianMs": 27.261949166667062,
+        "medianMiBPerSecond": 36.68116296037596,
+        "p25MiBPerSecond": 33.58056595935856,
+        "p75MiBPerSecond": 40.26987041585331,
+        "samples": [
+          {
+            "iterations": 6,
+            "elapsedMs": 172.18030099999942
+          },
+          {
+            "iterations": 6,
+            "elapsedMs": 152.73883999999998
+          },
+          {
+            "iterations": 6,
+            "elapsedMs": 129.8205020000005
+          },
+          {
+            "iterations": 6,
+            "elapsedMs": 210.78610800000024
+          },
+          {
+            "iterations": 6,
+            "elapsedMs": 178.67477300000246
+          },
+          {
+            "iterations": 6,
+            "elapsedMs": 163.57169500000236
+          },
+          {
+            "iterations": 6,
+            "elapsedMs": 228.1710149999999
+          },
+          {
+            "iterations": 6,
+            "elapsedMs": 148.99476799999684
+          },
+          {
+            "iterations": 6,
+            "elapsedMs": 124.07599200000186
+          }
+        ]
+      },
+      "decompress": {
+        "medianMs": 2.0858394565217644,
+        "medianMiBPerSecond": 479.4232829728646,
+        "p25MiBPerSecond": 449.86536116521955,
+        "p75MiBPerSecond": 531.9269739197103,
+        "samples": [
+          {
+            "iterations": 46,
+            "elapsedMs": 102.19265099999939
+          },
+          {
+            "iterations": 46,
+            "elapsedMs": 102.25281599999835
+          },
+          {
+            "iterations": 46,
+            "elapsedMs": 110.35689199999979
+          },
+          {
+            "iterations": 46,
+            "elapsedMs": 115.37130099999922
+          },
+          {
+            "iterations": 46,
+            "elapsedMs": 95.94861500000115
+          },
+          {
+            "iterations": 46,
+            "elapsedMs": 86.47803600000043
+          },
+          {
+            "iterations": 46,
+            "elapsedMs": 84.69272099999944
+          },
+          {
+            "iterations": 46,
+            "elapsedMs": 74.74027900000146
+          },
+          {
+            "iterations": 46,
+            "elapsedMs": 87.87650900000153
+          }
+        ]
+      }
+    }
+  ]
+}

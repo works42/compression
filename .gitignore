@@ -1,0 +1,22 @@
+# Dependencies and generated output
+/node_modules/
+/dist/
+/build/
+*.tgz
+*.tsbuildinfo
+
+# Local work, test output, and diagnostics
+/.local/
+/test-results/
+/playwright-report/
+/coverage/
+*.log
+*.cpuprofile
+*.heapsnapshot
+
+# Machine-local files
+.DS_Store
+.env
+.env.*
+!.env.example
+.npmrc
