@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Zstandard file demo</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: system-ui, sans-serif;
+        color: #172533;
+        background: #f0f4f6;
+        line-height: 1.5;
+      }
+
+      body {
+        margin: 0;
+        padding: clamp(1rem, 6vw, 4rem) 1rem;
+      }
+
+      main {
+        box-sizing: border-box;
+        max-width: 35rem;
+        margin: 0 auto;
+        padding: clamp(1.25rem, 5vw, 2.5rem);
+        background: white;
+        border: 1px solid #cbd6dd;
+        border-radius: 0.75rem;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(1.7rem, 6vw, 2.5rem);
+        line-height: 1.15;
+      }
+
+      p {
+        margin: 0.75rem 0 0;
+      }
+
+      label {
+        display: block;
+        margin: 1.5rem 0 0.4rem;
+        font-weight: 650;
+      }
+
+      input {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 0.65rem;
+        border: 1px solid #909faa;
+        border-radius: 0.4rem;
+        font: inherit;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+
+      button {
+        padding: 0.55rem 0.85rem;
+        color: #12364b;
+        background: #f3f7f9;
+        border: 1px solid #909faa;
+        border-radius: 0.4rem;
+        font: inherit;
+        font-weight: 600;
+      }
+
+      button[value='compress'] {
+        color: white;
+        background: #18536b;
+        border-color: #18536b;
+      }
+
+      button:enabled {
+        cursor: pointer;
+      }
+
+      button:disabled {
+        opacity: 0.55;
+      }
+
+      #limit {
+        color: #4b5966;
+        font-size: 0.9rem;
+      }
+
+      #status,
+      #download {
+        overflow-wrap: anywhere;
+      }
+
+      #download {
+        color: #18536b;
+        font-weight: 650;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Zstandard file demo</h1>
+      <p>Compress or decompress a file locally in your browser.</p>
+
+      <form>
+        <label for="file">File</label>
+        <input id="file" type="file" required aria-describedby="limit" />
+        <p id="limit">This demo limits compression input and decompressed output to 64 MiB.</p>
+        <div class="actions">
+          <button type="submit" value="compress" disabled>Compress</button>
+          <button type="submit" value="decompress" disabled>Decompress</button>
+          <button type="button" id="cancel" hidden>Cancel</button>
+        </div>
+      </form>
+
+      <p id="status" role="status"></p>
+      <a id="download" hidden></a>
+    </main>
+
+    <script type="module">
+      import { compressStream, decompressStream } from '../dist/index.js'
+
+      const limit = 64 * 1024 * 1024
+      const form = document.querySelector('form')
+      const fileInput = document.querySelector('#file')
+      const buttons = form.querySelectorAll('button[type="submit"]')
+      const cancel = document.querySelector('#cancel')
+      const status = document.querySelector('#status')
+      const download = document.querySelector('#download')
+      let controller
+      let downloadUrl
+
+      function updateControls() {
+        const running = controller !== undefined
+        fileInput.disabled = running
+        for (const button of buttons) {
+          button.disabled = running || fileInput.files.length === 0
+        }
+        cancel.hidden = !running
+      }
+
+      function clearDownload() {
+        if (downloadUrl) {
+          URL.revokeObjectURL(downloadUrl)
+          downloadUrl = undefined
+        }
+        download.hidden = true
+        download.removeAttribute('href')
+      }
+
+      fileInput.addEventListener('change', () => {
+        clearDownload()
+        status.textContent = ''
+        updateControls()
+      })
+
+      cancel.addEventListener('click', () => controller?.abort())
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault()
+        const file = fileInput.files[0]
+        if (!file || controller) return
+
+        const decompressing = event.submitter?.value === 'decompress'
+        controller = new AbortController()
+        const { signal } = controller
+        clearDownload()
+        updateControls()
+        status.textContent = decompressing ? 'Decompressing…' : 'Compressing…'
+
+        try {
+          const options = { format: 'zstd', signal }
+          const output = decompressing
+            ? await decompressStream(file.stream(), { ...options, maxOutputBytes: limit })
+            : await compressStream(file.stream(), { ...options, maxInputBytes: limit })
+
+          // Collect the bounded output for a download link after the stream succeeds.
+          const chunks = []
+          await output.pipeTo(
+            new WritableStream({
+              write(chunk) {
+                chunks.push(chunk)
+              },
+            }),
+            { signal },
+          )
+          signal.throwIfAborted()
+          const blob = new Blob(chunks, { type: 'application/octet-stream' })
+          let filename = `${file.name}.zst`
+          if (decompressing) {
+            const stem = file.name.replace(/\.zst$/i, '')
+            filename = stem === file.name ? `${file.name}.decoded` : stem || 'restored'
+          }
+
+          downloadUrl = URL.createObjectURL(blob)
+          download.href = downloadUrl
+          download.download = filename
+          download.textContent = `Download ${filename}`
+          download.hidden = false
+          status.textContent = `Done. ${blob.size.toLocaleString()} bytes ready to download.`
+        } catch (error) {
+          status.textContent = signal.aborted ? 'Cancelled.' : error.message
+        } finally {
+          controller = undefined
+          updateControls()
+        }
+      })
+
+      updateControls()
+    </script>
+  </body>
+</html>

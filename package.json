@@ -1,0 +1,81 @@
+{
+  "name": "@works42/compression",
+  "version": "0.1.0",
+  "license": "MIT",
+  "description": "Streaming Zstandard for browsers, workers, and Node.js, with native gzip and deflate adapters",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/works42/compression.git"
+  },
+  "homepage": "https://github.com/works42/compression#readme",
+  "bugs": {
+    "url": "https://github.com/works42/compression/issues"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": [
+    "./dist/worker.js"
+  ],
+  "keywords": [
+    "zstd",
+    "compression",
+    "web-streams",
+    "wasm",
+    "worker"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./worker": "./dist/worker.js",
+    "./wasm/*": "./dist/wasm/*"
+  },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/*.js",
+    "dist/*.d.ts",
+    "dist/wasm/zstd.mjs",
+    "dist/wasm/zstd.wasm",
+    "dist/wasm/LICENSE.zstd",
+    "LICENSE.zstd",
+    "CHANGELOG.md",
+    "docs/api.md",
+    "examples/browser-file.html",
+    "examples/node-stream.mjs",
+    "examples/node-worker-pool.mjs",
+    "examples/prepared-codec.mjs"
+  ],
+  "scripts": {
+    "build": "npm run build:wasm && npm run build:js",
+    "build:wasm": "make wasm",
+    "build:js": "node tools/build-js.mjs",
+    "prebench": "npm run build",
+    "bench": "node tools/benchmark.mjs",
+    "bench:render": "node tools/render-benchmark.mjs",
+    "check": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tests/tsconfig.json",
+    "pretest": "npm run build && npm run check",
+    "test": "npm run test:wasm && npm run test:node && npm run test:browser && npm run test:stream",
+    "test:wasm": "make test-wasm",
+    "test:node": "node --test tests/node.test.mjs tests/buffer.test.mjs tests/worker-pool.test.mjs tests/content-size.test.mjs",
+    "test:browser": "playwright test",
+    "test:stream": "node --test tests/streaming.test.mjs",
+    "check:package": "node tools/check-package.mjs",
+    "release:check": "npm run format:check && npm test && npm run check:package",
+    "prepack": "npm run build 1>&2 && npm run check:package 1>&2",
+    "format": "prettier --write . && make format",
+    "format:check": "prettier --check . && make format-check"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "esbuild": "0.28.2",
+    "prettier": "3.6.2",
+    "typescript": "~7.0.2",
+    "vite": "^8.3.4"
+  }
+}

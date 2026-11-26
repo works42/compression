@@ -1,0 +1,16 @@
+.git/
+.local/
+node_modules/
+dist/
+build/
+test-results/
+playwright-report/
+coverage/
+*.tgz
+*.log
+.env
+.env.*
+.npmrc
+**/.env
+**/.env.*
+**/.npmrc
